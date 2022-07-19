@@ -1,0 +1,15 @@
+.intro {
+  height: 100vh;
+  background-color: $color1;
+  @extend %introFonts;
+
+  h1 {
+    margin-top: 0;
+    font-size: 3rem;
+    text-align: center;
+  }
+  p {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
