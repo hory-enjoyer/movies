@@ -22,7 +22,7 @@
 ::-webkit-scrollbar-thumb {
   /* 5 - ползунок */
   border-radius: 2px;
-  background-color: rgba(160, 160, 204, 0.7);
+  background-color: rgba(155, 155, 255, 0.85);
 }
 
 ::-webkit-scrollbar-corner {
@@ -40,7 +40,7 @@
 
 html,
 body {
-  background-color: rgba(160, 160, 204, 0.7);
+  background-color: rgba(155, 155, 255, 0.85);
   font-size: 16px;
   padding: 0;
   margin: 0;
@@ -62,42 +62,44 @@ body {
   text-align: center;
 }
 
+.main {
+  background: linear-gradient(rgba(22, 21, 29, 0.85), rgba(155, 155, 255, 0.85));
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 40px;
+  margin: 0 40px;
+  padding: 20px 0;
   justify-content: center;
 }
 
 .card {
-  border: 1px solid rgba(22, 21, 29, 0.85);
+  position: relative;
   background-color: rgba(22, 21, 29, 0.85);
-  width: 400px;
+  width: 300px;
   height: 400px;
-  font-size: 1.5rem;
-  margin: 0 10px;
-  transition: 1s;
-  border-radius: 25px;
+  font-size: 1rem;
+  margin: 10px 10px;
+  padding: 10px;
+  transition: 0.75s;
+  border-radius: 10px;
   cursor: pointer;
+  color: white;
 }
 .card h1 {
   text-align: center;
 }
 .card img {
-  width: 350px;
+  width: 250px;
+  height: 200px;
   display: block;
-  margin: 20px auto;
-  border-radius: 25px;
-}
-.card p {
-  visibility: hidden;
-}
-.card:hover {
-  box-shadow: inset 0 -3.25em 0 0 var(--hover);
-}
-.card:hover p {
-  visibility: visible;
+  margin: 0 auto;
 }
 .card:hover img {
-  opacity: 0.85;
+  opacity: 0.6;
+}
+.card:hover:hover,
+.card:hover :focus {
+  box-shadow: inset 0 30rem 0 0 rgba(128, 159, 247, 0.6);
 }
