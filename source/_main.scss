@@ -54,18 +54,21 @@
 
 .searchNav {
   background-color: black;
-  color: white;
+  color: $color2;
   display: flex;
   width: 200px;
-  align-items: flex-start;
   flex-direction: column;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 .boxtype {
   input {
-    display: block;
+    display: inline;
   }
-  legend {
-    display: block;
+  label {
+    display: inline;
   }
 }

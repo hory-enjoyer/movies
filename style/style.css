@@ -113,18 +113,20 @@ body {
 
 .searchNav {
   background-color: black;
-  color: white;
+  color: rgba(155, 155, 255, 0.85);
   display: flex;
   width: 200px;
-  align-items: flex-start;
   flex-direction: column;
+}
+.searchNav h1 {
+  text-align: center;
 }
 
 .boxtype input {
-  display: block;
+  display: inline;
 }
-.boxtype legend {
-  display: block;
+.boxtype label {
+  display: inline;
 }
 
 footer {
