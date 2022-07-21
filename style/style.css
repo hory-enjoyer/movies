@@ -51,6 +51,7 @@ body {
 .intro {
   height: 100vh;
   background-color: rgba(22, 21, 29, 0.85);
+  color: rgba(155, 155, 255, 0.85);
 }
 .intro h1 {
   margin-top: 0;
@@ -69,32 +70,34 @@ body {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 40px;
-  padding: 20px 0;
   justify-content: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 980px;
+  width: 70%;
 }
 
 .card {
   position: relative;
-  background-color: rgba(22, 21, 29, 0.85);
-  width: 300px;
-  height: 400px;
-  font-size: 1rem;
   margin: 10px 10px;
-  padding: 10px;
-  transition: 0.75s;
-  border-radius: 10px;
+  transition: 1s;
   cursor: pointer;
-  color: white;
+  color: rgba(155, 155, 255, 0.85);
 }
 .card h1 {
-  text-align: center;
+  position: absolute;
+  top: 80%;
+  right: 50%;
+  transform: translateX(50%);
+  font-family: "Koulen", cursive;
+  font-size: 1.3rem;
 }
 .card img {
-  width: 250px;
-  height: 200px;
-  display: block;
-  margin: 0 auto;
+  width: 300px;
+  height: 400px;
 }
 .card:hover img {
   opacity: 0.6;
@@ -102,4 +105,29 @@ body {
 .card:hover:hover,
 .card:hover :focus {
   box-shadow: inset 0 30rem 0 0 rgba(128, 159, 247, 0.6);
+}
+
+.search {
+  text-align: center;
+}
+
+.searchNav {
+  background-color: black;
+  color: white;
+  display: flex;
+  width: 200px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.boxtype input {
+  display: block;
+}
+.boxtype legend {
+  display: block;
+}
+
+footer {
+  background: linear-gradient(rgba(155, 155, 255, 0.85), rgba(22, 21, 29, 0.85));
+  height: 10vh;
 }

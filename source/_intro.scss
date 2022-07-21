@@ -1,6 +1,7 @@
 .intro {
   height: 100vh;
   background-color: $color1;
+  color: $color2;
   @extend %introFonts;
 
   h1 {
