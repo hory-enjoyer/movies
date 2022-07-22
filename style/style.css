@@ -65,12 +65,14 @@ body {
 
 .main {
   background: linear-gradient(rgba(22, 21, 29, 0.85), rgba(155, 155, 255, 0.85));
+  padding-top: 50px;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .cards {
@@ -111,13 +113,36 @@ body {
 .search {
   text-align: center;
 }
+.search input {
+  border-radius: 12px;
+  height: 20px;
+  background-color: rgba(22, 21, 29, 0.85);
+  color: rgba(155, 155, 255, 0.85);
+  border: none;
+}
+.search input:focus {
+  outline: 3px ridge rgba(155, 155, 255, 0.85);
+  border-radius: 2rem;
+}
+.search button {
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: rgba(22, 21, 29, 0.85);
+  color: rgba(155, 155, 255, 0.85);
+  font-size: 1rem;
+  padding: 5px 10px;
+  margin-left: 5px;
+}
 
 .searchNav {
-  background-color: black;
+  background-color: rgba(22, 21, 29, 0.85);
+  font-family: "Koulen", cursive;
   color: rgba(155, 155, 255, 0.85);
   border-radius: 16px;
+  margin-top: 10px;
   display: flex;
   width: 200px;
+  height: 400px;
   flex-direction: column;
 }
 .searchNav h1 {
@@ -126,9 +151,11 @@ body {
 
 .boxtype input {
   display: inline;
+  margin-left: 20px;
 }
 .boxtype label {
   display: inline;
+  margin-left: 10px;
 }
 
 footer {

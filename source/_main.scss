@@ -1,11 +1,13 @@
 .main {
   background: $bg;
+  padding-top: 50px;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .cards {
@@ -49,14 +51,39 @@
 
 .search {
   text-align: center;
+  input {
+    border-radius: 12px;
+    height: 20px;
+    background-color: $color1;
+    color: $color2;
+    border: none;
+
+    &:focus {
+      outline: 3px ridge $color2;
+      border-radius: 2rem;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: $color1;
+    color: $color2;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 5px;
+  }
 }
 
 .searchNav {
-  background-color: black;
+  background-color: $color1;
+  font-family: $ff;
   color: $color2;
   border-radius: 16px;
+  margin-top: 10px;
   display: flex;
   width: 200px;
+  height: 400px;
   flex-direction: column;
 
   h1 {
@@ -67,8 +94,10 @@
 .boxtype {
   input {
     display: inline;
+    margin-left: 20px;
   }
   label {
     display: inline;
+    margin-left: 10px;
   }
 }
