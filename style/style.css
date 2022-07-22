@@ -45,6 +45,11 @@ body {
   padding: 0;
   margin: 0;
   border: 0;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -119,6 +124,7 @@ body {
   background-color: rgba(22, 21, 29, 0.85);
   color: rgba(155, 155, 255, 0.85);
   border: none;
+  padding-left: 12px;
 }
 .search input:focus {
   outline: 3px ridge rgba(155, 155, 255, 0.85);
@@ -131,7 +137,6 @@ body {
   color: rgba(155, 155, 255, 0.85);
   font-size: 1rem;
   padding: 5px 10px;
-  margin-left: 5px;
 }
 
 .searchNav {
@@ -152,6 +157,7 @@ body {
 .boxtype input {
   display: inline;
   margin-left: 20px;
+  padding-left: 10px;
 }
 .boxtype label {
   display: inline;
