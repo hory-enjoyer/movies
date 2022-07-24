@@ -156,6 +156,28 @@ body {
     transform: translateZ(-35vw) rotateY(-360deg);
   }
 }
+.card1 {
+  position: relative;
+  margin: 10px 10px;
+  transition: 1s;
+  cursor: pointer;
+  color: rgba(155, 155, 255, 0.85);
+  border-radius: 5px;
+}
+.card1 h1 {
+  position: absolute;
+  top: 80%;
+  right: 50%;
+  transform: translateX(50%);
+  font-family: "Koulen", cursive;
+  font-size: 1.3rem;
+}
+.card1 img {
+  width: 300px;
+  height: 400px;
+  border-radius: 5px;
+}
+
 .main {
   background: linear-gradient(rgba(22, 21, 29, 0.85), rgba(155, 155, 255, 0.85));
   padding-top: 50px;
@@ -240,7 +262,7 @@ body {
   margin-top: 10px;
   display: flex;
   width: 200px;
-  height: 400px;
+  height: 300px;
   flex-direction: column;
 }
 .searchNav h1 {
@@ -261,4 +283,23 @@ body {
 footer {
   background: linear-gradient(rgba(155, 155, 255, 0.85), rgba(22, 21, 29, 0.85));
   height: 10vh;
+  text-align: center;
+  margin-top: 50px;
+}
+footer a {
+  font-family: "Koulen", cursive;
+  font-size: 2rem;
+  color: rgba(22, 21, 29, 0.85);
+  cursor: pointer;
+  transition: 0.5s;
+  margin: 0 10px;
+  text-decoration: none;
+}
+footer a:hover {
+  color: rgba(128, 159, 247, 0.6);
+}
+footer p {
+  font-family: "Koulen", cursive;
+  font-size: 1.2rem;
+  color: rgba(22, 21, 29, 0.85);
 }

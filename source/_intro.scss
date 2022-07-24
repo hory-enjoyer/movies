@@ -96,3 +96,27 @@
     transform: translateZ(-35vw) rotateY(-360deg);
   }
 }
+
+.card1 {
+  position: relative;
+  margin: 10px 10px;
+  transition: 1s;
+  cursor: pointer;
+  color: $color2;
+  border-radius: 5px;
+
+  h1 {
+    position: absolute;
+    top: 80%;
+    right: 50%;
+    transform: translateX(50%);
+    font-family: $ff;
+    font-size: 1.3rem;
+  }
+
+  img {
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+  }
+}

@@ -1,4 +1,25 @@
 footer {
   background: linear-gradient($color2, $color1);
   height: 10vh;
+  text-align: center;
+  margin-top: 50px;
+
+  a {
+    font-family: $ff;
+    font-size: 2rem;
+    color: $color1;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0 10px;
+    text-decoration: none;
+
+    &:hover {
+      color: $color3;
+    }
+  }
+  p {
+    font-family: $ff;
+    font-size: 1.2rem;
+    color: $color1;
+  }
 }
