@@ -94,12 +94,10 @@ body {
   transform-origin: center;
   transform-style: preserve-3d;
   transform: translateZ(-30vw) rotateY(0);
-  -webkit-animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
-          animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 .icon-cards__content.step-animation {
-  -webkit-animation: carousel 8s infinite steps(1) forwards;
-          animation: carousel 8s infinite steps(1) forwards;
+  animation: carousel 8s infinite steps(1) forwards;
 }
 .icon-cards__item {
   position: absolute;
@@ -125,21 +123,6 @@ body {
 }
 .icon-cards__item:nth-child(3) {
   transform: rotateY(240deg) translateZ(35vw);
-}
-
-@-webkit-keyframes carousel {
-  0%, 17.5% {
-    transform: translateZ(-35vw) rotateY(0);
-  }
-  27.5%, 45% {
-    transform: translateZ(-35vw) rotateY(-120deg);
-  }
-  55%, 72.5% {
-    transform: translateZ(-35vw) rotateY(-240deg);
-  }
-  82.5%, 100% {
-    transform: translateZ(-35vw) rotateY(-360deg);
-  }
 }
 
 @keyframes carousel {
