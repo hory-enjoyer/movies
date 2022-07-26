@@ -8,6 +8,10 @@ function Find(someid) {
     result[i] = finalArea[i].toUpperCase().includes(id);
   }
 
+  if (id.length < 3) {
+    alert('Should be more, then 3');
+  }
+
   let final = result.indexOf(true);
 
   function filter(idd) {
@@ -64,8 +68,5 @@ function Find(someid) {
     }
   }
 
-  let f = finalArea.find(isTrue);
-
-  console.log(final);
-  console.log(f);
+  finalArea.find(isTrue);
 }
