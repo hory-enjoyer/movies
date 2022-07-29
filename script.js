@@ -12,11 +12,18 @@ function Find(someid) {
     el.toLowerCase().includes(id.toLowerCase())
   );
 
-  let clearArr = arrArea.map((el) => (el.style = 'display: none'));
+  arrArea.map((el) => (el.style = 'display: none'));
 
-  let nnew = filteredText.forEach((el) => {
+  filteredText.forEach((el) => {
     const element = document.getElementById(el);
-
     element.style = 'display: block';
   });
 }
+
+document
+  .querySelector('#text-to-find')
+  .addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      Find('text-to-find');
+    }
+  });
