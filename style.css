@@ -247,7 +247,7 @@ body {
   margin-top: 10px;
   display: flex;
   width: 200px;
-  height: 300px;
+  height: 350px;
   flex-direction: column;
 }
 .searchNav h1 {
@@ -263,6 +263,7 @@ body {
 .boxtype label {
   display: inline;
   margin-left: 10px;
+  transform: scale(30%);
 }
 
 footer {

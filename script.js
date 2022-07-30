@@ -1,3 +1,5 @@
+import './modules/generateCards.js';
+
 function Find(someid) {
   let id = document
     .getElementById(someid)
@@ -19,6 +21,22 @@ function Find(someid) {
     element.style = 'display: block';
   });
 }
+
+// document
+//   .getElementById('text-to-find')
+//   .addEventListener('change', function (event) {
+//     if (event) {
+//       Find('text-to-find');
+//     }
+//   });
+
+document
+  .querySelector('.search')
+  .lastElementChild.addEventListener('click', function (event) {
+    if (event) {
+      Find('text-to-find');
+    }
+  });
 
 document
   .querySelector('#text-to-find')
