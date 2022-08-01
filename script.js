@@ -1,3 +1,4 @@
+import { data } from './modules/data.js';
 import './modules/generateCards.js';
 
 function Find(someid) {
@@ -21,14 +22,6 @@ function Find(someid) {
     element.style = 'display: block';
   });
 }
-
-// document
-//   .getElementById('text-to-find')
-//   .addEventListener('change', function (event) {
-//     if (event) {
-//       Find('text-to-find');
-//     }
-//   });
 
 document
   .querySelector('.search')
