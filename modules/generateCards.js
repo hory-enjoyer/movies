@@ -1,24 +1,26 @@
-import { data } from './data.js';
+import { data as defaultData } from './data.js';
 
-let cards = document.querySelector('.cards');
+export function renderData(data) {
+  let cards = document.querySelector('.cards');
+  cards.innerHTML = '';
+  data.forEach((el) => {
+    let card = document.createElement('div');
 
-data.forEach((el) => {
-  let card = document.createElement('div');
+    card.classList.add('card');
+    card.id = el.id;
 
-  card.classList.add('card');
-  card.id = el.id;
+    let createImg = document.createElement('img');
+    createImg.src = el.imgSrc;
 
-  let createImg = document.createElement('img');
-  createImg.src = el.imgSrc;
+    let createH1 = document.createElement('h1');
+    createH1.innerText = el.title;
 
-  let createH1 = document.createElement('h1');
-  createH1.innerText = el.title;
+    card.appendChild(createImg);
+    card.appendChild(createH1);
 
-  card.appendChild(createImg);
-  card.appendChild(createH1);
-
-  cards.appendChild(card);
-});
+    cards.appendChild(card);
+  });
+}
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -39,7 +41,7 @@ function shuffle(array) {
 
 const preArray = [];
 
-data.forEach((el) => preArray.push(el));
+defaultData.forEach((el) => preArray.push(el));
 
 const randomArr = shuffle(preArray).splice(0, 3);
 

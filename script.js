@@ -1,5 +1,5 @@
-import { data } from './modules/data.js';
 import './modules/generateCards.js';
+import './modules/generateInputs.js';
 
 function Find(someid) {
   let id = document
