@@ -42,13 +42,13 @@ inputs.forEach((el) => {
   }
 });
 
-if (inputs.some((el) => el.checked === true)) {
-  const [filters, filteredData] = filterData();
+// if (inputs.some((el) => el.checked === true)) {
+//   const [filters, filteredData] = filterData();
 
-  renderData(filters.length ? filteredData : data);
-} else {
-  renderData(data);
-}
+//   renderData(filters.length ? filteredData : data);
+// } else {
+//   renderData(data);
+// }
 
 const [filters, filteredData] = filterData();
 

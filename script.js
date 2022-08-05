@@ -38,3 +38,6 @@ document
       Find('text-to-find');
     }
   });
+
+// let allCards = document.querySelectorAll('.card');
+// let arrAllCards = Array.from(allCards);
