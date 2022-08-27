@@ -45,6 +45,7 @@ body {
   padding: 0;
   margin: 0;
   border: 0;
+  font-family: "Koulen", cursive;
 }
 
 *,
@@ -87,7 +88,6 @@ body {
   transform-origin: center;
 }
 .icon-cards h1 {
-  font-family: "Koulen", cursive;
   font-size: 1.2rem;
 }
 .icon-cards__content {
@@ -179,7 +179,6 @@ body {
   top: 85%;
   right: 50%;
   transform: translateX(50%);
-  font-family: "Koulen", cursive;
   font-size: 1.2rem;
 }
 .card img {
@@ -202,7 +201,6 @@ body {
   color: rgba(155, 155, 255, 0.85);
   border: none;
   padding-left: 12px;
-  font-family: "Koulen", cursive;
 }
 .search input:focus {
   outline: 3px ridge rgba(155, 155, 255, 0.85);
@@ -224,7 +222,6 @@ body {
 
 .searchNav {
   background-color: rgba(22, 21, 29, 0.85);
-  font-family: "Koulen", cursive;
   color: rgba(155, 155, 255, 0.85);
   border-radius: 16px;
   margin-top: 10px;
@@ -256,7 +253,6 @@ footer {
   margin-top: 50px;
 }
 footer a {
-  font-family: "Koulen", cursive;
   font-size: 2rem;
   color: rgba(22, 21, 29, 0.85);
   cursor: pointer;
@@ -268,13 +264,11 @@ footer a:hover {
   color: rgba(128, 159, 247, 0.7);
 }
 footer p {
-  font-family: "Koulen", cursive;
   font-size: 1.2rem;
   color: rgba(22, 21, 29, 0.85);
 }
 
 .back {
-  font-family: "Koulen", cursive;
   font-size: 1rem;
   margin: 0 10px;
   cursor: pointer;

@@ -29,7 +29,6 @@
     top: 85%;
     right: 50%;
     transform: translateX(50%);
-    font-family: $ff;
     font-size: 1.2rem;
   }
 
@@ -53,7 +52,6 @@
     color: $color2;
     border: none;
     padding-left: 12px;
-    font-family: $ff;
 
     &:focus {
       outline: 3px ridge $color2;
@@ -79,7 +77,6 @@
 
 .searchNav {
   background-color: $color1;
-  font-family: $ff;
   color: $color2;
   border-radius: 16px;
   margin-top: 10px;
