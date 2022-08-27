@@ -50,9 +50,9 @@ inputs.forEach((el) => {
 //   renderData(data);
 // }
 
-const [filters, filteredData] = filterData();
+const [a, b] = filterData();
 
-renderData(filters.length ? filteredData : data);
+renderData(a.length ? b : data);
 
 function filterData() {
   const filters = [];

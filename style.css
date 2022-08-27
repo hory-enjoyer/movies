@@ -272,3 +272,29 @@ footer p {
   font-size: 1.2rem;
   color: rgba(22, 21, 29, 0.85);
 }
+
+.back {
+  font-family: "Koulen", cursive;
+  font-size: 1rem;
+  margin: 0 10px;
+  cursor: pointer;
+  height: 35px;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back i {
+  margin-right: 5px;
+}
+.back h3 {
+  margin-left: 10px;
+  display: inline;
+  margin: 0px;
+}
+.back:hover {
+  background-color: rgba(128, 159, 247, 0.7);
+  transition: 1s;
+  border-radius: 10px;
+}

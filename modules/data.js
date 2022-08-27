@@ -1,6 +1,6 @@
 export const data = [
   {
-    title: 'La-casa-de-papel',
+    title: 'La casa de papel',
     imgSrc:
       'https://cdn.discordapp.com/attachments/983771088330817566/1000872828800864276/unknown.png',
     genres: ['Triller', 'Romantic', 'Drama'],
