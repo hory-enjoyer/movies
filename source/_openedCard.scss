@@ -1,0 +1,38 @@
+.cardInfo {
+  h2 {
+    text-align: center;
+  }
+}
+
+.wrapperforimg {
+  display: flex;
+  padding: 20px;
+
+  img {
+    max-width: 300px;
+    margin-left: 20px;
+  }
+}
+
+.specialH1 {
+  text-align: center;
+  color: $color2;
+}
+
+.rating {
+  border-radius: 50%;
+  max-width: 50px;
+  margin: 0 auto;
+}
+
+.green {
+  border: 3px solid green;
+}
+
+.orange {
+  border: 3px solid orange;
+}
+
+.red {
+  border: 3px solid red;
+}

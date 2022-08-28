@@ -2,7 +2,7 @@ import './modules/generateCards.js';
 import './modules/generateInputs.js';
 
 function Find(someid) {
-  let id = document
+  let elementId = document
     .getElementById(someid)
     .value.toUpperCase()
     .replaceAll(' ', '-');
@@ -12,7 +12,7 @@ function Find(someid) {
   const texts = arrArea.map((el) => el.id);
 
   const filteredText = texts.filter((el) =>
-    el.toLowerCase().includes(id.toLowerCase())
+    el.toLowerCase().includes(elementId.toLowerCase())
   );
 
   arrArea.map((el) => (el.style = 'display: none'));

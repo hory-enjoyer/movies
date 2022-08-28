@@ -8,10 +8,6 @@ export const dataInput = [
     id: 'Triller',
   },
   {
-    label: 'Romantic',
-    id: 'Romantic',
-  },
-  {
     label: 'Fantastik',
     id: 'Fantastik',
   },
@@ -26,5 +22,17 @@ export const dataInput = [
   {
     label: 'Action',
     id: 'Action',
+  },
+  {
+    label: 'Detective',
+    id: 'Detective',
+  },
+  {
+    label: 'Criminal',
+    id: 'Criminal',
+  },
+  {
+    label: 'Horror',
+    id: 'Horror',
   },
 ];
