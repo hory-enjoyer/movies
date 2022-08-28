@@ -42,19 +42,11 @@ inputs.forEach((el) => {
   }
 });
 
-// if (inputs.some((el) => el.checked === true)) {
-//   const [filters, filteredData] = filterData();
-
-//   renderData(filters.length ? filteredData : data);
-// } else {
-//   renderData(data);
-// }
-
 const [a, b] = filterData();
 
 renderData(a.length ? b : data);
 
-function filterData() {
+export function filterData() {
   const filters = [];
 
   inputs.forEach((el) => {

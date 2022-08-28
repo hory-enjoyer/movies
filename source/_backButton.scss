@@ -1,22 +1,17 @@
 .back {
-  font-size: 1rem;
   margin: 0 10px;
   cursor: pointer;
-  height: 35px;
+  max-height: 35px;
   padding: 5px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: transparent;
 
   i {
-    margin-right: 5px;
-  }
-
-  h3 {
-    margin-left: 10px;
-    display: inline;
-    margin: 0px;
+    margin: 0 10px;
   }
 
   &:hover {

@@ -227,7 +227,7 @@ body {
   margin-top: 10px;
   display: flex;
   width: 200px;
-  height: 350px;
+  height: 380px;
   flex-direction: column;
 }
 .searchNav h1 {
@@ -269,26 +269,58 @@ footer p {
 }
 
 .back {
-  font-size: 1rem;
   margin: 0 10px;
   cursor: pointer;
-  height: 35px;
+  max-height: 35px;
   padding: 5px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  background-color: transparent;
 }
 .back i {
-  margin-right: 5px;
-}
-.back h3 {
-  margin-left: 10px;
-  display: inline;
-  margin: 0px;
+  margin: 0 10px;
 }
 .back:hover {
   background-color: rgba(128, 159, 247, 0.7);
   transition: 1s;
   border-radius: 10px;
+}
+
+.cardInfo h2 {
+  text-align: center;
+}
+
+.wrapperforimg {
+  display: flex;
+  padding: 20px;
+}
+.wrapperforimg img {
+  max-width: 300px;
+  margin-left: 20px;
+}
+
+.specialH1 {
+  text-align: center;
+  color: rgba(155, 155, 255, 0.85);
+}
+
+.rating {
+  border-radius: 50%;
+  max-width: 50px;
+  margin: 0 auto;
+}
+
+.green {
+  border: 3px solid green;
+}
+
+.orange {
+  border: 3px solid orange;
+}
+
+.red {
+  border: 3px solid red;
 }
