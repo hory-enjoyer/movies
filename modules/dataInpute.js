@@ -31,8 +31,4 @@ export const dataInput = [
     label: 'Criminal',
     id: 'Criminal',
   },
-  {
-    label: 'Horror',
-    id: 'Horror',
-  },
 ];
