@@ -1,8 +1,7 @@
 export const data = [
   {
     title: 'La casa de papel',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000872828800864276/unknown.png',
+    imgSrc: 'img/La_Casa_De_Papel.png',
     genres: ['Triller', 'Action', 'Criminal', 'Detective'],
     id: 'La-casa-de-papel',
     season: '5',
@@ -12,8 +11,7 @@ export const data = [
   },
   {
     title: 'Stranger Things',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000866884939436202/unknown.png',
+    imgSrc: 'img/Stranger_Things.png',
     genres: ['Triller', 'Drama', 'Fantastik', 'Detective', 'Horror'],
     id: 'Stranger-Things',
     season: '4',
@@ -23,8 +21,7 @@ export const data = [
   },
   {
     title: 'Breaking Bad',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000870497753518131/unknown.png',
+    imgSrc: 'img/Breaking_Bed.png',
     genres: ['Triller', 'Criminal', 'Drama'],
     id: 'Breaking-Bad',
     season: '5',
@@ -34,8 +31,7 @@ export const data = [
   },
   {
     title: 'Sex Education',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000870177430319206/unknown.png',
+    imgSrc: 'img/Sex_Education.png',
     genres: ['Comedia', 'Drama'],
     id: 'Sex-Education',
     season: '3',
@@ -45,8 +41,7 @@ export const data = [
   },
   {
     title: 'Peaky Blinders',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000873263179767860/unknown.png',
+    imgSrc: 'img/Peaky_Blinders.png',
     genres: ['Drama', 'Criminal'],
     id: 'Peaky-Blinders',
     season: '6',
@@ -56,8 +51,7 @@ export const data = [
   },
   {
     title: 'Power',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000874551124697178/unknown.png',
+    imgSrc: 'img/Power.png',
     genres: ['Drama', 'Criminal'],
     id: 'Power',
     season: '6',
@@ -67,8 +61,7 @@ export const data = [
   },
   {
     title: 'Elite',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000879179996332042/unknown.png',
+    imgSrc: 'img/Elite.png',
     genres: ['Drama', 'Criminal', 'Triller'],
     id: 'Elite',
     season: '5',
@@ -78,8 +71,7 @@ export const data = [
   },
   {
     title: 'Lock and key',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000881112765169766/1.jpg',
+    imgSrc: 'img/Lock_And_Key.jpg',
     genres: ['Drama', 'Horror', 'Fantastik'],
     id: 'Lock-and-key',
     season: '1',
@@ -89,8 +81,7 @@ export const data = [
   },
   {
     title: 'Mediator',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000886914531991592/c201867f3607b596.png',
+    imgSrc: 'img/Mediator.png',
     genres: ['Drama', 'Triller'],
     id: 'Mediator',
     season: '2',
@@ -100,8 +91,7 @@ export const data = [
   },
   {
     title: 'Difficult teenagers',
-    imgSrc:
-      'https://cdn.discordapp.com/attachments/983771088330817566/1000889306413535313/21.png',
+    imgSrc: 'img/Dificult_Teanagers.png',
     genres: ['Drama', 'Comedia'],
     id: 'Difficult-teenagers',
     season: '3',
