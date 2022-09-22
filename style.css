@@ -201,6 +201,7 @@ body {
   color: rgba(155, 155, 255, 0.85);
   border: none;
   padding-left: 12px;
+  font-family: "Koulen", cursive;
 }
 .search input:focus {
   outline: 3px ridge rgba(155, 155, 255, 0.85);
