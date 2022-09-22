@@ -299,6 +299,7 @@ footer p {
 }
 .wrapperforimg img {
   max-width: 300px;
+  max-height: 400px;
   margin-left: 20px;
 }
 
