@@ -111,7 +111,7 @@ export const data = [
   {
     title: 'Better call Saul',
     imgSrc: 'img/saul.jpg',
-    genres: ['Drama', 'Criminal'],
+    genres: ['Comedia', 'Criminal'],
     id: 'Saul',
     season: '6',
     rating: '10',
@@ -120,5 +120,23 @@ export const data = [
     I want to talk a little bit about the show itself. The ending, of course, killed me, sad a little bit. But let's take it in order. The movie is of very high quality, the plot is cool and well-thought-out, there's a lot of action in the series, doesn't make you get bored. I think it's a very cool series that everyone should watch, I wouldn't say that I would recommend it to the first ranks, but after certain shows it would definitely get on my list of recommendations. The characters other than Saul, such as Michael, were great. So as not to spoil any points, I'll end my little semi-review-review at this point.
     
     Better Call Saul.`,
+  },
+    {
+    title: 'Wednesday',
+    imgSrc: 'img/wednesday.jpg',
+    genres: ['Drama', 'Fantastik', 'Triller'],
+    id: 'Wednesday',
+    season: '1',
+    rating: '9.5',
+    description: ``,
+  },
+    {
+    title: 'Dark',
+    imgSrc: 'img/dark.jpg',
+    genres: ['Drama', 'Triller', 'Detective', 'Fantastik'],
+    id: 'Dark',
+    season: '3',
+    rating: '10',
+    description: ``,
   },
 ];
