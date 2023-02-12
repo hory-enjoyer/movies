@@ -139,4 +139,13 @@ export const data = [
     rating: '10',
     description: ``,
   },
+      {
+    title: 'Lupin',
+    imgSrc: 'img/lupin.jpg',
+    genres: ['Triller', 'Detective', 'Criminal'],
+    id: 'Lupin',
+    season: '2',
+    rating: '7',
+    description: ``,
+  },
 ];
