@@ -1,5 +1,5 @@
-import { data } from './data.js';
-import { dataInput } from './dataInpute.js';
+import { data } from '../data/data.js';
+import { dataInput } from '../data/dataInpute.js';
 import { renderData } from './generateCards.js';
 
 let searchNav = document.querySelector('.searchNav');

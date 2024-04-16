@@ -1,38 +1,73 @@
 import './modules/generateCards.js';
 import './modules/generateInputs.js';
+import './modules/LanguageSwitcher.js';
+import './modules/SearchAndFilters.js';
 
-document.querySelector('#search-button').addEventListener('click', function() {
-  Find();
-});
 
-document.getElementById('text-to-find').addEventListener('keydown', function(event) {
-  if (event.keyCode === 13) { // Enter key
-    Find();
+const texts = {
+  en: {
+    welcome: "Welcome to movies library!",
+    searchPlaceholder: "search",
+    clearSearch: "Clear Search",
+    filters: "Filters",
+    developedBy: "Developed by Bohdan Butenko"
+  },
+  ua: {
+    welcome: "Ласкаво просимо до бібліотеки фільмів!",
+    searchPlaceholder: "пошук",
+    clearSearch: "Очистити пошук",
+    filters: "Фільтри",
+    developedBy: "Розроблено Bohdan Butenko"
   }
-});
+};
 
-document.getElementById('clear-search').addEventListener('click', function() {
-  document.getElementById('text-to-find').value = ''; // Clear the search input
-  const checkboxes = document.querySelectorAll('.searchNav input[type="checkbox"]');
-  checkboxes.forEach(checkbox => {
-      checkbox.checked = false; // Uncheck all filter checkboxes
-      sessionStorage.setItem(checkbox.id, 'false'); // Reset session storage for checkboxes
-  });
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => card.style.display = ''); // Ensure all cards are visible
-  renderData(defaultData); // Re-render all data to show all movies
-});
-
-function Find() {
-  const searchQuery = document.getElementById('text-to-find').value.trim().toLowerCase();
-  const cards = document.querySelectorAll('.card');
+function switchLanguage(lang) {
+  document.querySelector('.intro h1').textContent = texts[lang].welcome;
+  document.getElementById('text-to-find').setAttribute('placeholder', texts[lang].searchPlaceholder);
+  document.getElementById('clear-search').textContent = texts[lang].clearSearch;
+  document.querySelector('.searchNav h1').textContent = texts[lang].filters;
+  document.querySelector('footer p').textContent = texts[lang].developedBy;
   
-  cards.forEach(card => {
-      const content = card.textContent || card.innerText;
-      if (content.toLowerCase().includes(searchQuery)) {
-          card.style.display = '';
-      } else {
-          card.style.display = 'none';
-      }
+  localStorage.setItem('preferredLanguage', lang);
+}
+
+document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+document.getElementById('lang-ua').addEventListener('click', () => switchLanguage('ua'));
+
+function updateFilterTexts(language) {
+  dataInput.forEach(filter => {
+    const filterElement = document.getElementById(filter.id);
+    if (filterElement) {
+      filterElement.nextElementSibling.textContent = language === 'ua' ? filter.labelUA : filter.label;
+    }
   });
 }
+
+function updateCardTexts(language) {
+  data.forEach(card => {
+    const cardElement = document.getElementById(card.id);
+    if (cardElement) {
+      cardElement.querySelector('.card-title').textContent = language === 'ua' ? card.titleUA : card.title;
+      cardElement.querySelector('.card-description').textContent = language === 'ua' ? card.descriptionUA : card.description;
+    }
+  });
+}
+
+document.getElementById('lang-en').addEventListener('click', () => {
+  currentLanguage = 'en';
+  updateFilterTexts(currentLanguage);
+  updateCardTexts(currentLanguage);
+});
+
+document.getElementById('lang-ua').addEventListener('click', () => {
+  currentLanguage = 'ua';
+  updateFilterTexts(currentLanguage);
+  updateCardTexts(currentLanguage);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+  currentLanguage = savedLanguage;
+  updateFilterTexts(currentLanguage);
+  updateCardTexts(currentLanguage);
+});

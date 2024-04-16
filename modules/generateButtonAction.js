@@ -1,4 +1,4 @@
-import { data } from './data.js';
+import { data } from '../data/data.js';
 import { renderData } from './generateCards.js';
 import { filterData } from './generateInputs.js';
 

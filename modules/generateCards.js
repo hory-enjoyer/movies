@@ -1,4 +1,4 @@
-import { data as defaultData } from './data.js';
+import { data as defaultData } from '../data/data.js';
 import { showCards } from './generateButtonAction.js';
 
 export function renderData(data) {
@@ -15,6 +15,11 @@ export function renderData(data) {
 
     let createH1 = document.createElement('h1');
     createH1.innerText = el.title;
+    createH1.setAttribute('data-title', el.id);
+
+    let createP = document.createElement('p');
+    createP.innerText = el.description;
+    createP.setAttribute('data-description', el.id);
 
     card.onclick = function () {
       cards.innerHTML = '';
