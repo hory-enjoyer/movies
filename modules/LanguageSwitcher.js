@@ -1,4 +1,5 @@
-import { data, dataInput } from '../data';
+import { data } from '../data/data.js';
+import { dataInput } from '../data/dataInpute.js';
 
 let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
 
