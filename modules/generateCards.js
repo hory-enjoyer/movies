@@ -1,6 +1,6 @@
 import { data as defaultData } from '../data/data.js';
 import { showCards } from './generateButtonAction.js';
-import { switchLanguage, currentLanguage } from './LanguageSwitcher.js';
+import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
 
 export function renderData(data) {
   let cards = document.querySelector('.cards');
@@ -46,7 +46,8 @@ export function renderData(data) {
       else rating.classList.add('red');
 
       let season = document.createElement('h2');
-      season.innerText = 'Season was stopped on: ' + el.season;
+      season.classList.add('season');
+      season.innerText = texts[currentLanguage].seasonStopped + el.season; // Используем переведенную строку
 
       let textWithImg = document.createElement('div');
       textWithImg.classList.add('wrapperforimg');
@@ -105,24 +106,22 @@ function shuffle(array) {
   return array;
 }
 
-const preArray = [];
-
-defaultData.forEach((el) => preArray.push(el));
-
+const preArray = [...defaultData];  // Используем копию данных
 const randomArr = shuffle(preArray).splice(0, 3);
 
 let iconCards = document.querySelector('.icon-cards__content');
+iconCards.innerHTML = ''; // Очистка карусели перед добавлением новых элементов
 
 randomArr.forEach((el) => {
   let card = document.createElement('div');
-
   card.classList.add('icon-cards__item');
 
   let createImg = document.createElement('img');
   createImg.src = el.imgSrc;
 
   let createH1 = document.createElement('h1');
-  createH1.innerText = el.title;
+  createH1.setAttribute('data-title', el.id); // Добавляем data-title для обновления текста
+  createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title; // Используем текущий язык для установки текста
 
   card.appendChild(createImg);
   card.appendChild(createH1);

@@ -1,20 +1,23 @@
 import { data } from '../data/data.js';
 import { dataInput } from '../data/dataInpute.js';
+import { data as defaultData } from '../data/data.js';
 
-const texts = {
+export const texts = {
   en: {
     welcome: "Welcome to movies library!",
     searchPlaceholder: "search",
     clearSearch: "Clear Search",
     filters: "Filters",
-    developedBy: "Developed by Bohdan Butenko"
+    developedBy: "Developed by Bohdan Butenko",
+    seasonStopped: "Season was stopped on: "
   },
   ua: {
     welcome: "Ласкаво просимо до бібліотеки фільмів!",
     searchPlaceholder: "пошук",
     clearSearch: "Очистити пошук",
     filters: "Фільтри",
-    developedBy: "Розроблено Bohdan Butenko"
+    developedBy: "Розроблено Богданом Бутенко",
+    seasonStopped: "Сезон, на якому було зупинено перегляд: "
   }
 };
 
@@ -32,6 +35,7 @@ export function switchLanguage(lang) {
 
   updateFilterTexts(lang);
   updateCardTexts(lang);
+  updateCarouselTexts(lang);
 }
 
 function updateFilterTexts(language) {
@@ -50,8 +54,20 @@ function updateCardTexts(language) {
     if (cardData) {
       const titleElement = card.querySelector('[data-title]') || card.querySelector('.specialH1');
       const descriptionElement = card.querySelector('[data-description]') || card.querySelector('p:not(.rating):not(.season)');
+      const seasonElement = card.querySelector('.season'); // Убедитесь, что у элемента есть класс 'season'
       if (titleElement) titleElement.textContent = language === 'ua' ? cardData.titleUA : cardData.title;
       if (descriptionElement) descriptionElement.textContent = language === 'ua' ? cardData.descriptionUA : cardData.description;
+      if (seasonElement) seasonElement.innerText = texts[language].seasonStopped + cardData.season; // Обновление текста для сезона
+    }
+  });
+}
+
+function updateCarouselTexts(language) {
+  const carouselItems = document.querySelectorAll('.icon-cards__item [data-title]');
+  carouselItems.forEach(item => {
+    const cardData = defaultData.find(d => d.id === item.getAttribute('data-title'));
+    if (cardData) {
+      item.textContent = language === 'ua' ? cardData.titleUA : cardData.title;
     }
   });
 }
