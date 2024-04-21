@@ -1,12 +1,12 @@
 import { data as defaultData } from '../data/data.js';
 import { showCards } from './generateButtonAction.js';
+import { switchLanguage, currentLanguage } from './LanguageSwitcher.js';
 
 export function renderData(data) {
   let cards = document.querySelector('.cards');
   cards.innerHTML = '';
   data.forEach((el) => {
     let card = document.createElement('div');
-
     card.classList.add('card');
     card.id = el.id;
 
@@ -46,7 +46,7 @@ export function renderData(data) {
       else rating.classList.add('red');
 
       let season = document.createElement('h2');
-      season.innerText = 'Season was stoped on: ' + el.season;
+      season.innerText = 'Season was stopped on: ' + el.season;
 
       let textWithImg = document.createElement('div');
       textWithImg.classList.add('wrapperforimg');
@@ -55,7 +55,10 @@ export function renderData(data) {
 
       let backButton = document.createElement('button');
       backButton.classList.add('back');
-      backButton.onclick = showCards;
+      backButton.onclick = () => {
+        showCards(); // Function to show all cards
+        switchLanguage(currentLanguage); // Ensure language consistency when returning to all cards
+      };
 
       let fontBack = document.createElement('i');
       fontBack.classList.add('fa-angle-left');
@@ -74,14 +77,16 @@ export function renderData(data) {
 
       cards.appendChild(backButton);
       cards.appendChild(card);
+
+      switchLanguage(currentLanguage); // Apply language settings to detailed card
     };
 
     card.appendChild(createImg);
     card.appendChild(createH1);
-
     cards.appendChild(card);
   });
 }
+
 
 function shuffle(array) {
   let currentIndex = array.length,
