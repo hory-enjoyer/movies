@@ -1,7 +1,23 @@
 import { data } from '../data/data.js';
 import { dataInput } from '../data/dataInpute.js';
 
-let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+const texts = {
+  en: {
+    welcome: "Welcome to movies library!",
+    searchPlaceholder: "search",
+    clearSearch: "Clear Search",
+    filters: "Filters",
+    developedBy: "Developed by Bohdan Butenko"
+  },
+  ua: {
+    welcome: "Ласкаво просимо до бібліотеки фільмів!",
+    searchPlaceholder: "пошук",
+    clearSearch: "Очистити пошук",
+    filters: "Фільтри",
+    developedBy: "Розроблено Bohdan Butenko"
+  }
+};
+
 
 function switchLanguage(lang) {
   document.querySelector('.intro h1').textContent = texts[lang].welcome;
@@ -26,18 +42,50 @@ function updateFilterTexts(language) {
 }
 
 function updateCardTexts(language) {
-  data.forEach(card => {
-    const cardElement = document.getElementById(card.id);
-    if (cardElement) {
-      cardElement.querySelector('.card-title').textContent = language === 'ua' ? card.titleUA : card.title;
-      cardElement.querySelector('.card-description').textContent = language === 'ua' ? card.descriptionUA : card.description;
+  const allCards = document.querySelectorAll('.card');
+  allCards.forEach(card => {
+    if (isVisible(card)) { // Проверяем, видим ли элемент
+      const cardData = data.find(d => d.id === card.id);
+      if (cardData) {
+        const titleElement = card.querySelector('[data-title]'); // Должен быть атрибут data-title на элементе заголовка
+        const descriptionElement = card.querySelector('[data-description]'); // Должен быть атрибут data-description на элементе описания
+        if (titleElement) titleElement.textContent = language === 'ua' ? cardData.titleUA : cardData.title; // Обновляем заголовок
+        if (descriptionElement) descriptionElement.textContent = language === 'ua' ? cardData.descriptionUA : cardData.description; // Обновляем описание
+      } else {
+        console.error('No data found for ID:', card.id);
+      }
     }
   });
+}
+
+function isVisible(elem) {
+  return !!elem && !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
 }
 
 document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
 document.getElementById('lang-ua').addEventListener('click', () => switchLanguage('ua'));
 
+let currentLanguage = localStorage.getItem('preferredLanguage') || 'en';
+
 document.addEventListener('DOMContentLoaded', () => {
   switchLanguage(currentLanguage);
+});
+
+document.getElementById('lang-en').addEventListener('click', () => {
+  currentLanguage = 'en';
+  updateFilterTexts(currentLanguage);
+  updateCardTexts(currentLanguage);
+});
+
+document.getElementById('lang-ua').addEventListener('click', () => {
+  currentLanguage = 'ua';
+  updateFilterTexts(currentLanguage);
+  updateCardTexts(currentLanguage);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+  currentLanguage = savedLanguage;
+  updateFilterTexts(currentLanguage);
+  updateCardTexts(currentLanguage);
 });

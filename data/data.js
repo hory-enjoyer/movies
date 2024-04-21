@@ -111,7 +111,7 @@ export const data = [
   },
     {
     title: 'Wednesday',
-    titleUA: 'Середа',
+    titleUA: 'Венсдей',
     imgSrc: 'img/Wednesday.png',
     genres: ['Drama', 'Fantastik', 'Triller'],
     id: 'Wednesday',
