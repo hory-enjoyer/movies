@@ -169,6 +169,8 @@ body {
 
 .card {
   position: relative;
+  width: auto;
+  overflow: hidden;
   margin: 10px 10px;
   cursor: pointer;
   color: rgba(155, 155, 255, 0.85);
@@ -177,9 +179,14 @@ body {
 .card h1 {
   position: absolute;
   top: 85%;
-  right: 50%;
-  transform: translateX(50%);
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрирование относительно левого верхнего угла */
   font-size: 1.2rem;
+  width: 100%; /* Ширина заголовка равна ширине карточки */
+  text-align: center; /* Центрирование текста */
+  overflow: hidden; /* Скрывает текст, выходящий за границы */
+  white-space: nowrap; /* Запрещаем перенос строки */
+  text-overflow: ellipsis; /* Добавляем троеточие, если текст не помещается */
 }
 .card img {
   width: 300px;
