@@ -4,7 +4,7 @@
   --primary-color: rgba(22, 21, 29, 0.85); /* Соответствует $color1 */
   --secondary-color: rgba(155, 155, 255, 0.85); /* Соответствует $color2 */
   --accent-color: rgba(128, 159, 247, 0.7); /* Соответствует $color3 */
-  --text-color: rgba(255, 255, 255, 1);
+  --text-color: rgba(225, 225, 245, 0.9);
 }
 
 ::-webkit-scrollbar {
@@ -196,6 +196,9 @@ body {
   white-space: nowrap; /* Запрещаем перенос строки */
   text-overflow: ellipsis; /* Добавляем троеточие, если текст не помещается */
 }
+.card h1, .card h2, .card p {
+  pointer-events: none; /* Убедитесь, что надписи не блокируют hover */
+}
 .card img {
   width: 300px;
   height: 400px;
@@ -268,20 +271,9 @@ footer {
   text-align: center;
   margin-top: 50px;
 }
-footer a {
-  font-size: 2rem;
-  color: var(--primary-color);
-  cursor: pointer;
-  transition: 0.5s;
-  margin: 0 10px;
-  text-decoration: none;
-}
-footer a:hover {
-  color: var(--accent-color);
-}
 footer p {
   font-size: 1.2rem;
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .back {
@@ -307,6 +299,7 @@ footer p {
 
 .cardInfo h2 {
   text-align: center;
+  color: var(--text-color);
 }
 
 .wrapperforimg {
@@ -317,6 +310,9 @@ footer p {
   max-width: 300px;
   max-height: 400px;
   margin-left: 20px;
+}
+.wrapperforimg p{
+  color: var(--text-color);
 }
 
 .specialH1 {
