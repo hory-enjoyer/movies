@@ -2,62 +2,43 @@ import { data } from '../data/data.js';
 import { dataInput } from '../data/dataInpute.js';
 import { renderData } from './generateCards.js';
 
-let searchNav = document.querySelector('.searchNav');
+const searchNav = document.querySelector('.searchNav');
 
 dataInput.forEach((el) => {
-  let inputBlock = document.createElement('div');
-
+  const inputBlock = document.createElement('div');
   inputBlock.classList.add('boxtype');
 
-  let createLabel = document.createElement('label');
+  const createLabel = document.createElement('label');
   createLabel.innerText = el.label;
 
-  let createInput = document.createElement('input');
+  const createInput = document.createElement('input');
   createInput.type = 'checkbox';
   createInput.id = el.id;
 
-  inputBlock.appendChild(createInput);
-  inputBlock.appendChild(createLabel);
-
+  inputBlock.append(createInput, createLabel);
   searchNav.appendChild(inputBlock);
 });
 
-let nodeInputs = document.querySelector('.searchNav').querySelectorAll('input');
+const inputs = Array.from(document.querySelectorAll('.searchNav input'));
 
-let inputs = Array.from(nodeInputs);
-
-inputs.forEach((el) => {
-  el.onchange = function (event) {
-    sessionStorage.setItem(`${el.id}`, `${event.target.checked}`);
-
+inputs.forEach((input) => {
+  input.onchange = (event) => {
+    sessionStorage.setItem(input.id, event.target.checked.toString());
     const [filters, filteredData] = filterData();
-
     renderData(filters.length ? filteredData : data);
   };
-});
 
-inputs.forEach((el) => {
-  if (sessionStorage.getItem(`${el.id}`) === `true`) {
-    el.checked = true;
+  if (sessionStorage.getItem(input.id) === 'true') {
+    input.checked = true;
   }
 });
 
-const [a, b] = filterData();
-
-renderData(a.length ? b : data);
+const [filters, filteredData] = filterData();
+renderData(filters.length ? filteredData : data);
 
 export function filterData() {
-  const filters = [];
-
-  inputs.forEach((el) => {
-    if (el.checked === true) {
-      filters.push(el.id);
-    }
-  });
-
-  const filteredData = data.filter((film) => {
-    return filters.some((filter) => film.genres.join(' ').includes(filter));
-  });
-
+  const filters = inputs.filter(input => input.checked).map(input => input.id);
+  const filteredData = data.filter(film => filters.some(filter => film.genres.includes(filter)));
   return [filters, filteredData];
 }
+
