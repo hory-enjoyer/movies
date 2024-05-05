@@ -54,10 +54,10 @@ function updateCardTexts(language) {
     if (cardData) {
       const titleElement = card.querySelector('[data-title]') || card.querySelector('.specialH1');
       const descriptionElement = card.querySelector('[data-description]') || card.querySelector('p:not(.rating):not(.season)');
-      const seasonElement = card.querySelector('.season'); // Убедитесь, что у элемента есть класс 'season'
+      const seasonElement = card.querySelector('.season');
       if (titleElement) titleElement.textContent = language === 'ua' ? cardData.titleUA : cardData.title;
       if (descriptionElement) descriptionElement.textContent = language === 'ua' ? cardData.descriptionUA : cardData.description;
-      if (seasonElement) seasonElement.innerText = texts[language].seasonStopped + cardData.season; // Обновление текста для сезона
+      if (seasonElement) seasonElement.innerText = texts[language].seasonStopped + cardData.season;
     }
   });
 }
@@ -76,15 +76,5 @@ document.getElementById('lang-en').addEventListener('click', () => switchLanguag
 document.getElementById('lang-ua').addEventListener('click', () => switchLanguage('ua'));
 
 document.addEventListener('DOMContentLoaded', () => {
-  const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-  switchLanguage(savedLanguage);
+  switchLanguage(localStorage.getItem('preferredLanguage') || 'en');
 });
-
-function initialLanguageSetup() {
-  const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
-  switchLanguage(savedLanguage);
-}
-
-document.removeEventListener('DOMContentLoaded', initialLanguageSetup); // Только если обработчик был добавлен таким же способом
-document.addEventListener('DOMContentLoaded', initialLanguageSetup);
-
