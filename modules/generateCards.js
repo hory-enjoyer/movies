@@ -14,11 +14,11 @@ export function renderData(data) {
     createImg.src = el.imgSrc;
 
     let createH1 = document.createElement('h1');
-    createH1.innerText = el.title;
+    createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title; // Use currentLanguage to determine text
     createH1.setAttribute('data-title', el.id);
 
     let createP = document.createElement('p');
-    createP.innerText = el.description;
+    createP.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description; // Use currentLanguage to determine text
     createP.setAttribute('data-description', el.id);
 
     card.onclick = function () {
@@ -32,11 +32,11 @@ export function renderData(data) {
       createImgDetail.src = el.imgSrc;
 
       let createH1Detail = document.createElement('h1');
-      createH1Detail.innerText = el.title;
+      createH1Detail.innerText = currentLanguage === 'ua' ? el.titleUA : el.title; // Use currentLanguage to determine text
       createH1Detail.classList.add('specialH1');
 
       let createPDetail = document.createElement('p');
-      createPDetail.innerText = el.description;
+      createPDetail.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description; // Use currentLanguage to determine text
 
       let rating = document.createElement('h2');
       rating.innerText = el.rating;
