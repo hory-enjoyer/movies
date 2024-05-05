@@ -7,59 +7,33 @@
   --text-color: rgba(225, 225, 245, 0.9);
 }
 
-::-webkit-scrollbar {
-  /* 1 - скроллбар */
-  width: 7px;
-  height: 4px;
-}
-
-::-webkit-scrollbar-button {
-  /* 2 - кнопка */
-  background-color: var(--primary-color);
-}
-
-::-webkit-scrollbar-track {
-  /* 3 - трек */
-  background-color: var(--primary-color);
-}
-
-::-webkit-scrollbar-track-piece {
-  /* 4 - видимая часть трека */
-}
-
-::-webkit-scrollbar-thumb {
-  /* 5 - ползунок */
-  border-radius: 2px;
-  background-color: var(--secondary-color);
-}
-
-::-webkit-scrollbar-corner {
-  /* 6 - уголок */
-}
-
-::-webkit-resizer {
-  /* 7 - изменение размеров */
-}
-
-.intro {
-  font-family: "Koulen", cursive;
-  color: white;
-}
-
-html,
-body {
+html, body {
   background-color: var(--secondary-color);
   font-size: 16px;
   padding: 0;
   margin: 0;
   border: 0;
   font-family: "Koulen", cursive;
+  box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-track {
+  background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--secondary-color);
 }
 
 .intro {
@@ -101,8 +75,6 @@ body {
 }
 .icon-cards__content {
   position: absolute;
-  width: 100%;
-  height: 100%;
   width: 300px;
   height: 400px;
   transform-origin: center;
@@ -111,7 +83,7 @@ body {
   animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 .icon-cards__content.step-animation {
-  animation: carousel 8s infinite steps(1) forwards;
+  animation-duration: 8s; /* Изменено только время анимации */
 }
 .icon-cards__item {
   position: absolute;
@@ -130,8 +102,8 @@ body {
   transform: translate(50%, -50%);
 }
 .icon-cards__item img {
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 .icon-cards__item:nth-child(1) {
   transform: rotateY(0) translateZ(30vw);
@@ -144,19 +116,20 @@ body {
 }
 
 @keyframes carousel {
-  0%, 17.5% {
-    transform: translateZ(-35vw) rotateY(0);
+  0%, 100% {
+    transform: translateZ(-35vw) rotateY(0deg);
   }
-  27.5%, 45% {
+  25% {
     transform: translateZ(-35vw) rotateY(-120deg);
   }
-  55%, 72.5% {
+  50% {
     transform: translateZ(-35vw) rotateY(-240deg);
   }
-  82.5%, 100% {
+  75% {
     transform: translateZ(-35vw) rotateY(-360deg);
   }
 }
+
 .main {
   background: linear-gradient(var(--primary-color), var(--secondary-color));
   padding-top: 50px;
@@ -184,27 +157,31 @@ body {
   border-radius: 5px;
   color: var(--text-color);
 }
+
 .card h1 {
   position: absolute;
   top: 90%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Центрирование относительно левого верхнего угла */
+  transform: translate(-50%, -50%);
   font-size: 1.2rem;
-  width: 100%; /* Ширина заголовка равна ширине карточки */
-  text-align: center; /* Центрирование текста */
-  overflow: hidden; /* Скрывает текст, выходящий за границы */
-  white-space: nowrap; /* Запрещаем перенос строки */
-  text-overflow: ellipsis; /* Добавляем троеточие, если текст не помещается */
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
 .card h1, .card h2, .card p {
-  pointer-events: none; /* Убедитесь, что надписи не блокируют hover */
+  pointer-events: none;
 }
+
 .card img {
   width: 300px;
   height: 400px;
   border-radius: 5px;
-  transition: 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
 }
+
 .card img:hover {
   opacity: 0.5;
 }
@@ -222,7 +199,7 @@ body {
   font-family: "Koulen", cursive;
 }
 .search input:focus {
-  outline: 3px ridge var(--text-color);;
+  outline: 3px ridge var(--text-color);
   border-radius: 2rem;
 }
 .search button {
@@ -259,10 +236,11 @@ body {
   padding-left: 10px;
   cursor: pointer;
 }
+
 .boxtype label {
   display: inline;
   margin-left: 10px;
-  transform: scale(30%);
+  transform: scale(0.3); /* Используйте десятичные значения для единообразия */
 }
 
 footer {
@@ -271,53 +249,54 @@ footer {
   text-align: center;
   margin-top: 50px;
 }
+
 footer p {
   font-size: 1.2rem;
   color: var(--text-color);
 }
 
-.back {
-  margin: 0 10px;
+.back, .clear-button {
   cursor: pointer;
-  max-height: 35px;
-  padding: 5px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
-  background-color: transparent;
-}
-.back i {
-  margin: 0 10px;
-}
-.back:hover {
-  background-color: var(--accent-color);
-  transition: 1s;
   border-radius: 10px;
 }
 
-.cardInfo h2 {
-  text-align: center;
+.back {
+  margin: 0 10px;
+  max-height: 35px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.back i {
+  margin: 0 10px;
+}
+
+.back:hover {
+  background-color: var(--accent-color);
+  transition: 1s;
+}
+
+.cardInfo h2, .wrapperforimg p, .specialH1 {
   color: var(--text-color);
+}
+
+.cardInfo h2, .specialH1 {
+  text-align: center;
 }
 
 .wrapperforimg {
   display: flex;
   padding: 20px;
 }
+
 .wrapperforimg img {
   max-width: 300px;
   max-height: 400px;
   margin-left: 20px;
-}
-.wrapperforimg p{
-  color: var(--text-color);
-}
-
-.specialH1 {
-  text-align: center;
-  color: var(--text-color);
 }
 
 .rating {
@@ -326,25 +305,27 @@ footer p {
   margin: 0 auto;
 }
 
+.green, .orange, .red {
+  border-width: 3px;
+  border-style: solid;
+}
+
 .green {
-  border: 3px solid green;
+  border-color: green;
 }
 
 .orange {
-  border: 3px solid orange;
+  border-color: orange;
 }
 
 .red {
-  border: 3px solid red;
+  border-color: red;
 }
 
 .clear-button {
   background-color: #f2f2f2;
-  border: none;
-  cursor: pointer;
   padding: 10px 20px;
   margin-left: 10px;
-  border-radius: 5px;
   font-size: 16px;
 }
 
@@ -359,7 +340,6 @@ footer p {
   display: flex;
   align-items: center;
   padding: 5px;
-  width: auto;
   gap: 10px;
   z-index: 1000;
 }
@@ -386,7 +366,7 @@ footer p {
   display: none;
   position: absolute;
   right: 0;
-  top: 48px;
+  top: 35px;
   border-radius: 5px;
   width: 102%;
 }
@@ -400,7 +380,7 @@ footer p {
 }
 
 .auth-buttons button {
-  background-color: var(----primary-color);
+  background-color: var(--primary-color); /* Исправлена ошибка в названии переменной */
   border-radius: 4px;
   cursor: pointer;
 }

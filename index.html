@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/68a34cfcac.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/68a34cfcac.js" crossorigin="anonymous" async></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type='image/x-icon' href="img/Logo.png">
 </head>
@@ -17,51 +17,48 @@
     <div class="container">
         <div class="intro">
             <h1>Welcome to movies library!</h1>
-
-        <div class="top-bar">
-            <div class="language-switcher">
-                <div class="lang-toggle">
-                    <i class="fa-solid fa-globe"></i>
+            <div class="top-bar">
+                <div class="language-switcher">
+                    <button class="lang-toggle" aria-label="Toggle language options">
+                        <i class="fa-solid fa-globe"></i>
+                    </button>
+                    <div class="lang-options hidden">
+                        <button id="lang-en" aria-label="Switch to English">EN</button>
+                        <button id="lang-ua" aria-label="Switch to Ukrainian">UA</button>
+                    </div>  
                 </div>
-                <div class="lang-options hidden">
-                    <button id="lang-en">EN</button>
-                    <button id="lang-ua">UA</button>
-                </div>  
+        
+                <div class="auth-buttons">
+                    <button id="register-button" aria-label="Register new account">Register</button>
+                    <button id="login-button" aria-label="Log in to account">Login</button>
+                </div> 
             </div>
-
-            <div class="auth-buttons">
-                <button id="register-button">Register</button>
-                <button id="login-button">Login</button>
-            </div> 
-        </div>
-
-        <div class="form-container"></div>
-
-        <div class="subintro">
-            <figure class="icon-cards">
-                <div class="icon-cards__content"></div>
+        
+            <div class="subintro">
+                <figure class="icon-cards">
+                    <div class="icon-cards__content"></div>
                 </figure>
             </div>
         </div>
-        <div class="main">
-            <div class="search">
-                <input type="text" id="text-to-find" placeholder="search">
-                <button type="submit" id="search-button">
+
+        <main class="main">
+            <section class="search">
+                <input type="text" id="text-to-find" placeholder="search" aria-label="Search field">
+                <button type="submit" id="search-button" aria-label="Search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
-
-                <button type="button" id="clear-search" class="clear-button">
+                <button type="button" id="clear-search" class="clear-button" aria-label="Clear search">
                     <i class="fa-solid fa-xmark"></i> Clear Search
                 </button>                
-            </div>
-            <div class="gallery">
+            </section>
+            <section class="gallery">
                 <div class="searchNav">
                     <h1>Filters</h1>
                 </div>
                 <div class="cards">
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
         <footer>
             <p>Developed by Bohdan Butenko</p>
         </footer>
