@@ -4,8 +4,8 @@ import { filterData } from './generateInputs.js';
 import { switchLanguage, currentLanguage } from './LanguageSwitcher.js';
 
 export function showCards() {
-  const [a, b] = filterData();
+  const [filters, filteredData] = filterData();
 
-  renderData(a.length ? b : data);
+  renderData(filters.length ? filteredData : data);
   switchLanguage(currentLanguage);
 }
