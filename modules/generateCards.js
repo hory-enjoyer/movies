@@ -24,19 +24,19 @@ export function renderData(data) {
     card.onclick = function () {
       cards.innerHTML = '';
 
-      let card = document.createElement('div');
-      card.classList.add('cardInfo');
-      card.id = el.id;
+      let cardDetail = document.createElement('div');
+      cardDetail.classList.add('cardInfo');
+      cardDetail.id = el.id;
 
-      let createImg = document.createElement('img');
-      createImg.src = el.imgSrc;
+      let createImgDetail = document.createElement('img');
+      createImgDetail.src = el.imgSrc;
 
-      let createH1 = document.createElement('h1');
-      createH1.innerText = el.title;
-      createH1.classList.add('specialH1');
+      let createH1Detail = document.createElement('h1');
+      createH1Detail.innerText = el.title;
+      createH1Detail.classList.add('specialH1');
 
-      let createP = document.createElement('p');
-      createP.innerText = el.description;
+      let createPDetail = document.createElement('p');
+      createPDetail.innerText = el.description;
 
       let rating = document.createElement('h2');
       rating.innerText = el.rating;
@@ -47,70 +47,53 @@ export function renderData(data) {
 
       let season = document.createElement('h2');
       season.classList.add('season');
-      season.innerText = texts[currentLanguage].seasonStopped + el.season; // Используем переведенную строку
+      season.innerText = texts[currentLanguage].seasonStopped + el.season;
 
       let textWithImg = document.createElement('div');
       textWithImg.classList.add('wrapperforimg');
-      textWithImg.appendChild(createP);
-      textWithImg.appendChild(createImg);
+      textWithImg.appendChild(createPDetail);
+      textWithImg.appendChild(createImgDetail);
 
       let backButton = document.createElement('button');
       backButton.classList.add('back');
       backButton.onclick = () => {
-        showCards(); // Function to show all cards
-        switchLanguage(currentLanguage); // Ensure language consistency when returning to all cards
+        showCards();
+        switchLanguage(currentLanguage);
       };
 
       let fontBack = document.createElement('i');
-      fontBack.classList.add('fa-angle-left');
-      fontBack.classList.add('fa-solid');
+      fontBack.classList.add('fa-angle-left', 'fa-solid');
 
       let text = document.createElement('h3');
       text.innerText = 'Back';
 
-      backButton.appendChild(fontBack);
-      backButton.appendChild(text);
+      backButton.append(fontBack, text);
 
-      card.appendChild(createH1);
-      card.appendChild(rating);
-      card.appendChild(season);
-      card.appendChild(textWithImg);
+      cardDetail.append(createH1Detail, rating, season, textWithImg);
 
-      cards.appendChild(backButton);
-      cards.appendChild(card);
+      cards.append(backButton, cardDetail);
 
-      switchLanguage(currentLanguage); // Apply language settings to detailed card
+      switchLanguage(currentLanguage);
     };
 
-    card.appendChild(createImg);
-    card.appendChild(createH1);
-    cards.appendChild(card);
+    card.append(createImg, createH1);
+    cards.append(card);
   });
 }
 
-
 function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
-
   return array;
 }
 
-const preArray = [...defaultData];  // Используем копию данных
+const preArray = [...defaultData];
 const randomArr = shuffle(preArray).splice(0, 3);
 
 let iconCards = document.querySelector('.icon-cards__content');
-iconCards.innerHTML = ''; // Очистка карусели перед добавлением новых элементов
+iconCards.innerHTML = '';
 
 randomArr.forEach((el) => {
   let card = document.createElement('div');
@@ -120,11 +103,10 @@ randomArr.forEach((el) => {
   createImg.src = el.imgSrc;
 
   let createH1 = document.createElement('h1');
-  createH1.setAttribute('data-title', el.id); // Добавляем data-title для обновления текста
-  createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title; // Используем текущий язык для установки текста
+  createH1.setAttribute('data-title', el.id);
+  createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title;
 
-  card.appendChild(createImg);
-  card.appendChild(createH1);
+  card.append(createImg, createH1);
 
-  iconCards.appendChild(card);
+  iconCards.append(card);
 });
