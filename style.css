@@ -352,47 +352,59 @@ footer p {
   background-color: #e1e1e1;
 }
 
-.language-switcher {
+.top-bar {
   position: fixed;
   top: 20px;
-  right: 50px; /* Расстояние справа; отрегулируйте под ваш дизайн */
-  display: inline-block;
-  cursor: pointer;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: auto;
+  gap: 10px;
+  z-index: 1000;
 }
 
-.lang-toggle {
-  background-color: #202020; /* Цвет фона */
-  color: #fff; /* Цвет текста */
-  padding: 10px 15px; /* Паддинг */
-  font-size: 16px; /* Размер шрифта */
-  border-radius: 5px; /* Скругление углов */
-  border: none; /* Убрать границу */
+.language-switcher, .auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.language-switcher {
+  position: relative; /* Для позиционирования выпадающего списка */
+}
+
+.lang-toggle, .lang-options button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
 }
 
 .lang-options {
-  display: none; /* Скрыть изначально */
+  display: none;
   position: absolute;
-  background-color: #202020; /* Цвет фона, как у .lang-toggle */
   right: 0;
-  top: 40px; /* Смещение ниже кнопки переключения */
-  border-radius: 5px; /* Скругление углов */
+  top: 48px;
+  border-radius: 5px;
+  width: 102%;
 }
 
-.lang-options button {
-  color: #fff; /* Цвет текста */
-  background: none; /* Прозрачный фон */
-  padding: 10px 15px; /* Паддинг */
-  border: none; /* Убрать границу */
-  display: block; /* Показывать как блок */
-  width: 100%; /* Ширина на весь контейнер */
-  text-align: left; /* Выравнивание текста влево */
-  border-radius: 0; /* Убрать скругление углов */
-}
-
-.language-switcher:hover .lang-options {
-  display: block; /* Показать при наведении */
+.lang-toggle:hover + .lang-options, .lang-options:hover {
+  display: block;
 }
 
 .lang-toggle:hover, .lang-options button:hover {
-  background-color: #303030; /* Цвет фона при наведении */
+  background-color: var(--secondary-color);
+}
+
+.auth-buttons button {
+  background-color: var(----primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-buttons button:hover {
+  background-color: var(--secondary-color);
 }
