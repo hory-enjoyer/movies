@@ -4,7 +4,12 @@ import './modules/generateInputs.js';
 import './modules/SearchAndFilters.js';
 
 document.getElementById('register-button').addEventListener('click', function() {
+    if (document.getElementById('registration-modal')) {
+        return;
+    }
+
     const modal = document.createElement('div');
+    modal.id = 'registration-modal';
     modal.style.position = 'fixed';
     modal.style.left = '0';
     modal.style.top = '0';
@@ -17,13 +22,13 @@ document.getElementById('register-button').addEventListener('click', function() 
     modal.innerHTML = `
         <div style="background: white; padding: 20px; border-radius: 5px;">
             <h2>Register</h2>
-            <form>
+            <form id="registration-form">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username"><br><br>
+                <input type="text" id="username" name="username" required minlength="4"><br><br>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password" required"><br><br>
                 <button type="submit">Register</button>
-                <button type="button" onclick="this.parentElement.parentElement.parentElement.style.display='none'">Back</button>
+                <button type="button" onclick="document.body.removeChild(document.getElementById('registration-modal'))">Back</button>
             </form>
         </div>
     `;
