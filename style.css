@@ -396,6 +396,7 @@ footer p {
   right: 10px;
   cursor: grab;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: none;
 }
 
 .favorite-button:hover {

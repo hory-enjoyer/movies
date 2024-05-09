@@ -1,6 +1,7 @@
 import { data as defaultData } from '../data/data.js';
 import { showCards } from './generateButtonAction.js';
 import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
+// import { loggedInUser } from './loginModal.js';
 
 export function renderData(data) {
   let cards = document.querySelector('.cards');
@@ -24,10 +25,7 @@ export function renderData(data) {
     let favoriteButton = document.createElement('button');
     favoriteButton.classList.add('favorite-button');
     favoriteButton.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>'; // Используйте классы Font Awesome для иконки звезды
-    favoriteButton.onclick = function() {
-      // Добавьте здесь логику для добавления в избранное
-      console.log('Добавлено в избранное:', el.id);
-    };
+    favoriteButton.setAttribute('data-movie-id', el.id);
 
     card.onclick = function () {
       cards.innerHTML = '';
@@ -87,7 +85,22 @@ export function renderData(data) {
     card.append(createImg, createH1, favoriteButton);
     cards.append(card);
   });
+
+  // updateFavoriteButtonsVisibility();
 }
+
+// function updateFavoriteButtonsVisibility() {
+//   const favoriteButtons = document.querySelectorAll('.favorite-button');
+//   if (loggedInUser) {
+//     favoriteButtons.forEach(button => {
+//       button.style.display = 'inline-block';
+//     });
+//   } else {
+//     favoriteButtons.forEach(button => {
+//       button.style.display = 'none';
+//     });
+//   }
+// }
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {

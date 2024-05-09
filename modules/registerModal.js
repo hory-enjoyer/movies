@@ -39,7 +39,8 @@ document.getElementById('register-button').addEventListener('click', function() 
 
         const user = {
             username: username,
-            password: password
+            password: password,
+            favorites: [],
         };
 
         users.push(user);

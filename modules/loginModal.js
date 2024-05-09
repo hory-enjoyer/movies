@@ -1,5 +1,18 @@
 import { users } from '../data/users.js'; 
 
+// export let loggedInUser = null;
+
+// document.getElementById('login-button').addEventListener('click', function() {
+//     // Остальной код...
+//     if (user) {
+//         loggedInUser = user; // Устанавливаем текущего пользователя
+//         // Остальной код...
+//     } else {
+//         loggedInUser = null; // Сбрасываем пользователя при неудачном входе
+//         // Остальной код...
+//     }
+// });
+
 document.getElementById('login-button').addEventListener('click', function() {
     if (document.getElementById('login-modal')) {
         return;
@@ -45,6 +58,19 @@ document.getElementById('login-button').addEventListener('click', function() {
             document.getElementById('register-button').style.display = 'none';
             document.getElementById('login-button').style.display = 'none';
             document.getElementById('profile-button').style.display = 'inline-block';
+        
+            // Отображение кнопок добавления в избранное
+            const favoriteButtons = document.querySelectorAll('.favorite-button');
+            favoriteButtons.forEach(button => {
+                button.style.display = 'inline-block';
+                button.addEventListener('click', function() {
+                    const movieId = button.getAttribute('data-movie-id');
+                    if (!user.favorites.includes(movieId)) {
+                        user.favorites.push(movieId);
+                        console.log('Added to favorites:', user.favorites); // Для отладки
+                    }
+                });
+            });
         } else {
             alert('Invalid username or password!');
         }
