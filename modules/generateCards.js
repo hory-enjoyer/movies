@@ -3,6 +3,43 @@ import { showCards } from './generateButtonAction.js';
 import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
 import { loggedInUser } from './loginModal.js';
 
+// Добавьте функцию для отображения избранных карточек
+function showFavoriteCards() {
+  let cards = document.querySelector('.cards');
+  cards.innerHTML = '';
+  loggedInUser.favorites.forEach(favId => {
+    const el = defaultData.find(item => item.id === favId);
+    if (el) {
+      let card = document.createElement('div');
+      card.classList.add('card');
+      card.id = el.id;
+
+      let createImg = document.createElement('img');
+      createImg.src = el.imgSrc;
+
+      let createH1 = document.createElement('h1');
+      createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title;
+      createH1.setAttribute('data-title', el.id);
+
+      card.append(createImg, createH1);
+      cards.append(card);
+    }
+  });
+}
+
+// Добавьте переменную для отслеживания состояния отображения
+let showingFavorites = false;
+
+document.getElementById('profile-button').addEventListener('click', function() {
+  if (showingFavorites) {
+    showCards(defaultData); // Показать все карточки
+    showingFavorites = false;
+  } else {
+    showFavoriteCards(); // Показать только избранные
+    showingFavorites = true;
+  }
+});
+
 export function renderData(data) {
   let cards = document.querySelector('.cards');
   cards.innerHTML = '';
