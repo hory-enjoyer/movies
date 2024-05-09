@@ -33,15 +33,18 @@ document.getElementById('login-button').addEventListener('click', function() {
 
     document.getElementById('login-form').addEventListener('submit', function(event) {
         event.preventDefault(); 
-
+    
         const username = document.getElementById('login-username').value;
         const password = document.getElementById('login-password').value;
-
+    
         const user = users.find(user => user.username === username && user.password === password);
-
+    
         if (user) {
             alert('Login successful!');
             document.body.removeChild(loginModal);
+            document.getElementById('register-button').style.display = 'none';
+            document.getElementById('login-button').style.display = 'none';
+            document.getElementById('profile-button').style.display = 'inline-block';
         } else {
             alert('Invalid username or password!');
         }
