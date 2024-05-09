@@ -3,7 +3,6 @@ import { showCards } from './generateButtonAction.js';
 import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
 import { loggedInUser } from './loginModal.js';
 
-// Добавьте функцию для отображения избранных карточек
 function showFavoriteCards() {
   let cards = document.querySelector('.cards');
   cards.innerHTML = '';
@@ -27,15 +26,14 @@ function showFavoriteCards() {
   });
 }
 
-// Добавьте переменную для отслеживания состояния отображения
 let showingFavorites = false;
 
 document.getElementById('profile-button').addEventListener('click', function() {
   if (showingFavorites) {
-    showCards(defaultData); // Показать все карточки
+    showCards(defaultData);
     showingFavorites = false;
   } else {
-    showFavoriteCards(); // Показать только избранные
+    showFavoriteCards();
     showingFavorites = true;
   }
 });
@@ -52,19 +50,19 @@ export function renderData(data) {
     createImg.src = el.imgSrc;
 
     let createH1 = document.createElement('h1');
-    createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title; // Use currentLanguage to determine text
+    createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title;
     createH1.setAttribute('data-title', el.id);
 
     let createP = document.createElement('p');
-    createP.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description; // Use currentLanguage to determine text
+    createP.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description;
     createP.setAttribute('data-description', el.id);
 
     let favoriteButton = document.createElement('button');
     favoriteButton.classList.add('favorite-button');
-    favoriteButton.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>'; // Используйте классы Font Awesome для иконки звезды
+    favoriteButton.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>';
     favoriteButton.setAttribute('data-movie-id', el.id);
     favoriteButton.onclick = function(event) {
-      event.stopPropagation(); // Остановка всплытия события
+      event.stopPropagation();
       if (loggedInUser) {
         const movieId = this.getAttribute('data-movie-id');
         if (!loggedInUser.favorites.includes(movieId)) {
@@ -87,11 +85,11 @@ export function renderData(data) {
       createImgDetail.src = el.imgSrc;
 
       let createH1Detail = document.createElement('h1');
-      createH1Detail.innerText = currentLanguage === 'ua' ? el.titleUA : el.title; // Use currentLanguage to determine text
+      createH1Detail.innerText = currentLanguage === 'ua' ? el.titleUA : el.title;
       createH1Detail.classList.add('specialH1');
 
       let createPDetail = document.createElement('p');
-      createPDetail.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description; // Use currentLanguage to determine text
+      createPDetail.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description;
 
       let rating = document.createElement('h2');
       rating.innerText = el.rating;

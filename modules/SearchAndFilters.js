@@ -29,4 +29,3 @@ function Find() {
     card.style.display = content.toLowerCase().includes(searchQuery) ? '' : 'none';
   });
 }
-

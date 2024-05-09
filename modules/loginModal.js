@@ -59,7 +59,6 @@ document.getElementById('login-button').addEventListener('click', function() {
                 });
             });
         
-            // Добавьте эту строку для закрытия модального окна логина
             document.body.removeChild(loginModal);
         } else {
             loggedInUser = null;

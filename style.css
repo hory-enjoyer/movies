@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 :root {
-  --primary-color: rgba(22, 21, 29, 0.85); /* Соответствует $color1 */
-  --secondary-color: rgba(155, 155, 255, 0.85); /* Соответствует $color2 */
-  --accent-color: rgba(128, 159, 247, 0.7); /* Соответствует $color3 */
+  --primary-color: rgba(22, 21, 29, 0.85);
+  --secondary-color: rgba(155, 155, 255, 0.85);
+  --accent-color: rgba(128, 159, 247, 0.7);
   --text-color: rgba(225, 225, 245, 0.9);
 }
 
@@ -83,7 +83,7 @@ html, body {
   animation: carousel 10s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 .icon-cards__content.step-animation {
-  animation-duration: 8s; /* Изменено только время анимации */
+  animation-duration: 8s;
 }
 .icon-cards__item {
   position: absolute;
@@ -160,7 +160,7 @@ html, body {
 }
 
 .card h1 {
-  position: absolute;
+  position:absolute;
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -241,7 +241,7 @@ html, body {
 .boxtype label {
   display: inline;
   margin-left: 10px;
-  transform: scale(0.3); /* Используйте десятичные значения для единообразия */
+  transform: scale(0.3);
 }
 
 footer {
@@ -351,7 +351,7 @@ footer p {
 }
 
 .language-switcher {
-  position: relative; /* Для позиционирования выпадающего списка */
+  position: relative;
 }
 
 .lang-toggle, .lang-options button {
@@ -381,7 +381,7 @@ footer p {
 }
 
 .auth-buttons button {
-  background-color: var(--primary-color); /* Исправлена ошибка в названии переменной */
+  background-color: var(--primary_color);
   border-radius: 4px;
   cursor: pointer;
 }
@@ -400,5 +400,5 @@ footer p {
 }
 
 .favorite-button:hover {
-  background-color: var(--accent-color); /* Изменение фона при наведении */
+  background-color: var(--accent-color);
 }

@@ -41,4 +41,3 @@ export function filterData() {
   const filteredData = data.filter(film => filters.some(filter => film.genres.includes(filter)));
   return [filters, filteredData];
 }
-
