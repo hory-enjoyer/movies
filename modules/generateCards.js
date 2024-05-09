@@ -21,6 +21,14 @@ export function renderData(data) {
     createP.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description; // Use currentLanguage to determine text
     createP.setAttribute('data-description', el.id);
 
+    let favoriteButton = document.createElement('button');
+    favoriteButton.classList.add('favorite-button');
+    favoriteButton.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>'; // Используйте классы Font Awesome для иконки звезды
+    favoriteButton.onclick = function() {
+      // Добавьте здесь логику для добавления в избранное
+      console.log('Добавлено в избранное:', el.id);
+    };
+
     card.onclick = function () {
       cards.innerHTML = '';
 
@@ -76,7 +84,7 @@ export function renderData(data) {
       switchLanguage(currentLanguage);
     };
 
-    card.append(createImg, createH1);
+    card.append(createImg, createH1, favoriteButton);
     cards.append(card);
   });
 }
