@@ -3,6 +3,8 @@ import { showCards } from './generateButtonAction.js';
 import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
 import { loggedInUser } from './loginModal.js';
 
+let showingFavorites = false;
+
 function showFavoriteCards() {
   let cards = document.querySelector('.cards');
   cards.innerHTML = '';
@@ -25,8 +27,6 @@ function showFavoriteCards() {
     }
   });
 }
-
-let showingFavorites = false;
 
 document.getElementById('profile-button').addEventListener('click', function() {
   if (showingFavorites) {
