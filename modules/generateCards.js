@@ -1,7 +1,7 @@
 import { data as defaultData } from '../data/data.js';
 import { showCards } from './generateButtonAction.js';
 import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
-// import { loggedInUser } from './loginModal.js';
+import { loggedInUser } from './loginModal.js';
 
 export function renderData(data) {
   let cards = document.querySelector('.cards');
@@ -26,6 +26,18 @@ export function renderData(data) {
     favoriteButton.classList.add('favorite-button');
     favoriteButton.innerHTML = '<i class="fa fa-star" aria-hidden="true"></i>'; // Используйте классы Font Awesome для иконки звезды
     favoriteButton.setAttribute('data-movie-id', el.id);
+    favoriteButton.onclick = function(event) {
+      event.stopPropagation(); // Остановка всплытия события
+      if (loggedInUser) {
+        const movieId = this.getAttribute('data-movie-id');
+        if (!loggedInUser.favorites.includes(movieId)) {
+          loggedInUser.favorites.push(movieId);
+          console.log('Added to favorites:', loggedInUser.favorites);
+        }
+      } else {
+        alert('Please log in to add favorites.');
+      }
+    };
 
     card.onclick = function () {
       cards.innerHTML = '';
@@ -86,21 +98,21 @@ export function renderData(data) {
     cards.append(card);
   });
 
-  // updateFavoriteButtonsVisibility();
+  updateFavoriteButtonsVisibility();
 }
 
-// function updateFavoriteButtonsVisibility() {
-//   const favoriteButtons = document.querySelectorAll('.favorite-button');
-//   if (loggedInUser) {
-//     favoriteButtons.forEach(button => {
-//       button.style.display = 'inline-block';
-//     });
-//   } else {
-//     favoriteButtons.forEach(button => {
-//       button.style.display = 'none';
-//     });
-//   }
-// }
+function updateFavoriteButtonsVisibility() {
+  const favoriteButtons = document.querySelectorAll('.favorite-button');
+  if (loggedInUser) {
+    favoriteButtons.forEach(button => {
+      button.style.display = 'inline-block';
+    });
+  } else {
+    favoriteButtons.forEach(button => {
+      button.style.display = 'none';
+    });
+  }
+}
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
