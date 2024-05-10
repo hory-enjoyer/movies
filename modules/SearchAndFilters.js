@@ -1,3 +1,7 @@
+import { renderData, showingFavorites, showFavoriteCards } from './generateCards.js';
+import { filterData } from './generateInputs.js';
+import { data as defaultData } from '../data/data.js';
+
 const searchButton = document.querySelector('#search-button');
 const searchText = document.getElementById('text-to-find');
 const clearSearchButton = document.getElementById('clear-search');
@@ -17,7 +21,13 @@ clearSearchButton.addEventListener('click', () => {
   });
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => card.style.display = '');
-  renderData(defaultData);
+
+  if (showingFavorites) {
+    const [currentFilters] = filterData();
+    showFavoriteCards(currentFilters);
+  } else {
+    renderData(defaultData);
+  }
 });
 
 function Find() {

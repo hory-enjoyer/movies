@@ -2,13 +2,19 @@ import { data as defaultData } from '../data/data.js';
 import { showCards } from './generateButtonAction.js';
 import { switchLanguage, currentLanguage, texts } from './LanguageSwitcher.js';
 import { loggedInUser } from './loginModal.js';
+import { filterData } from './generateInputs.js';
 
-let showingFavorites = false;
+export let showingFavorites = false;
 
-function showFavoriteCards() {
+export function showFavoriteCards(filters = []) {
   let cards = document.querySelector('.cards');
   cards.innerHTML = '';
-  loggedInUser.favorites.forEach(favId => {
+  const filteredFavorites = loggedInUser.favorites.filter(favId => {
+    const el = defaultData.find(item => item.id === favId);
+    return filters.length ? filters.some(filter => el.genres.includes(filter)) : true;
+  });
+
+  filteredFavorites.forEach(favId => {
     const el = defaultData.find(item => item.id === favId);
     if (el) {
       let card = document.createElement('div');
@@ -29,11 +35,12 @@ function showFavoriteCards() {
 }
 
 document.getElementById('profile-button').addEventListener('click', function() {
+  const [currentFilters] = filterData();
   if (showingFavorites) {
     showCards(defaultData);
     showingFavorites = false;
   } else {
-    showFavoriteCards();
+    showFavoriteCards(currentFilters);
     showingFavorites = true;
   }
 });

@@ -1,6 +1,7 @@
 import { data } from '../data/data.js';
 import { dataInput } from '../data/dataInpute.js';
 import { renderData } from './generateCards.js';
+import { showingFavorites, showFavoriteCards } from './generateCards.js';
 
 const searchNav = document.querySelector('.searchNav');
 
@@ -25,7 +26,11 @@ inputs.forEach((input) => {
   input.onchange = (event) => {
     sessionStorage.setItem(input.id, event.target.checked.toString());
     const [filters, filteredData] = filterData();
-    renderData(filters.length ? filteredData : data);
+    if (showingFavorites) {
+      showFavoriteCards(filters);
+    } else {
+      renderData(filters.length ? filteredData : data);
+    }
   };
 
   if (sessionStorage.getItem(input.id) === 'true') {
