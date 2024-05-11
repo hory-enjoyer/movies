@@ -1,7 +1,7 @@
 import { users } from '../data/users.js'; 
 
 document.getElementById('register-button').addEventListener('click', function() {
-    if (document.getElementById('registration-modal')) {
+    if (document.getElementById('registration-modal') || document.getElementById('login-modal')) {
         return;
     }
 

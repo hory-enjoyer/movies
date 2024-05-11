@@ -3,7 +3,7 @@ import { users } from '../data/users.js';
 export let loggedInUser = null;
 
 document.getElementById('login-button').addEventListener('click', function() {
-    if (document.getElementById('login-modal')) {
+    if (document.getElementById('login-modal') || document.getElementById('registration-modal')) {
         return;
     }
 
