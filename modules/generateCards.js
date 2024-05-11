@@ -39,6 +39,62 @@ export function showFavoriteCards(filters = []) {
         card.remove();
       };
 
+      card.onclick = function () {
+        cards.innerHTML = '';
+    
+        let cardDetail = document.createElement('div');
+        cardDetail.classList.add('cardInfo');
+        cardDetail.id = el.id;
+    
+        let createImgDetail = document.createElement('img');
+        createImgDetail.src = el.imgSrc;
+    
+        let createH1Detail = document.createElement('h1');
+        createH1Detail.innerText = currentLanguage === 'ua' ? el.titleUA : el.title;
+        createH1Detail.classList.add('specialH1');
+    
+        let createPDetail = document.createElement('p');
+        createPDetail.innerText = currentLanguage === 'ua' ? el.descriptionUA : el.description;
+    
+        let rating = document.createElement('h2');
+        rating.innerText = el.rating;
+        rating.classList.add('rating');
+        if (el.rating > 8) rating.classList.add('green');
+        else if (el.rating > 5) rating.classList.add('orange');
+        else rating.classList.add('red');
+    
+        let season = document.createElement('h2');
+        season.classList.add('season');
+        season.innerText = texts[currentLanguage].seasonStopped + el.season;
+    
+        let textWithImg = document.createElement('div');
+        textWithImg.classList.add('wrapperforimg');
+        textWithImg.appendChild(createPDetail);
+        textWithImg.appendChild(createImgDetail);
+    
+        let backButton = document.createElement('button');
+        backButton.classList.add('back');
+        backButton.onclick = () => {
+          const [currentFilters] = filterData();
+          showFavoriteCards(currentFilters);
+          switchLanguage(currentLanguage);
+        };
+    
+        let fontBack = document.createElement('i');
+        fontBack.classList.add('fa-angle-left', 'fa-solid');
+    
+        let text = document.createElement('h3');
+        text.innerText = 'Back';
+    
+        backButton.append(fontBack, text);
+    
+        cardDetail.append(createH1Detail, rating, season, textWithImg);
+    
+        cards.append(backButton, cardDetail);
+    
+        switchLanguage(currentLanguage);
+      };
+
       card.append(createImg, createH1, unfavoriteButton);
       cards.append(card);
     }
