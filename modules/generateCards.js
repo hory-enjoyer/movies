@@ -28,7 +28,18 @@ export function showFavoriteCards(filters = []) {
       createH1.innerText = currentLanguage === 'ua' ? el.titleUA : el.title;
       createH1.setAttribute('data-title', el.id);
 
-      card.append(createImg, createH1);
+      let unfavoriteButton = document.createElement('button');
+      unfavoriteButton.classList.add('unfavorite-button');
+      unfavoriteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+      unfavoriteButton.setAttribute('data-movie-id', el.id);
+      unfavoriteButton.onclick = function(event) {
+        event.stopPropagation();
+        loggedInUser.favorites = loggedInUser.favorites.filter(id => id !== el.id);
+        console.log('Removed from favorites:', loggedInUser.favorites);
+        card.remove();
+      };
+
+      card.append(createImg, createH1, unfavoriteButton);
       cards.append(card);
     }
   });

@@ -408,3 +408,17 @@ footer p {
   border: 2px solid var(--primary-color);
   box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+.unfavorite-button {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+.unfavorite-button i {
+  font-size: 18px;
+}
