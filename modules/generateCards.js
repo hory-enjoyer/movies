@@ -35,13 +35,16 @@ export function showFavoriteCards(filters = []) {
 }
 
 document.getElementById('profile-button').addEventListener('click', function() {
+  const profileButton = document.getElementById('profile-button');
   const [currentFilters] = filterData();
   if (showingFavorites) {
     showCards(defaultData);
     showingFavorites = false;
+    profileButton.classList.remove('active');
   } else {
     showFavoriteCards(currentFilters);
     showingFavorites = true;
+    profileButton.classList.add('active');
   }
 });
 
