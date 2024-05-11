@@ -76,6 +76,10 @@ export function switchLanguage(lang) {
   document.querySelector('.searchNav h1').textContent = texts[lang].filters;
   document.querySelector('footer p').textContent = texts[lang].developedBy;
 
+  document.querySelectorAll('.back h3').forEach(button => {
+    button.textContent = texts[lang].back;
+  });
+  
   updateFilterTexts(lang);
   updateCardTexts(lang);
   updateCarouselTexts(lang);
