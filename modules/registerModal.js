@@ -1,4 +1,5 @@
-import { users } from '../data/users.js'; 
+import { users } from '../data/users.js';
+import { currentLanguage, updateTexts } from './LanguageSwitcher.js';
 
 document.getElementById('register-button').addEventListener('click', function() {
     if (document.getElementById('registration-modal') || document.getElementById('login-modal')) {
@@ -31,6 +32,8 @@ document.getElementById('register-button').addEventListener('click', function() 
         </div>
     `;
     document.body.appendChild(modal);
+
+    updateTexts(currentLanguage);
 
     document.getElementById('registration-form').addEventListener('submit', function(event) {
         event.preventDefault(); 

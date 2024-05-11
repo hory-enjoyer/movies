@@ -1,4 +1,5 @@
 import { users } from '../data/users.js'; 
+import { currentLanguage, updateTexts } from './LanguageSwitcher.js';
 
 export let loggedInUser = null;
 
@@ -32,6 +33,8 @@ document.getElementById('login-button').addEventListener('click', function() {
         </div>
     `;
     document.body.appendChild(loginModal);
+
+    updateTexts(currentLanguage);
 
     document.getElementById('login-form').addEventListener('submit', function(event) {
         event.preventDefault(); 
